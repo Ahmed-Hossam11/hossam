@@ -7,14 +7,12 @@ import { User } from 'src/users/models/_user.model';
 
 export type TaskDocument = Task & Document;
 
-export enum State
-{
+export enum State {
   PENDING = 'PENDING',
   ACTIVE = 'ACTIVE',
   COMPLETED = 'COMPLETED',
 }
-export class Manager
-{
+export class Manager {
   @Prop({ type: String, required: true })
   id?: string;
 
@@ -23,8 +21,7 @@ export class Manager
 }
 
 @Schema({ timestamps: true })
-export class Task
-{
+export class Task {
   id?: string;
 
   @Prop({
@@ -71,6 +68,10 @@ export class Task
 
   @Prop({ type: Date, required: true })
   startDate?: Date;
+
+
+  @Prop({ type: String, required: false })
+  notes?: string;
 
   @Prop({ type: Date })
   deuDate?: Date;

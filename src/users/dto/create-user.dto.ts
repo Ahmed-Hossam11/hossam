@@ -1,20 +1,23 @@
 import { ApiProperty } from '@nestjs/swagger';
-import
-{
-  IsMongoId,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  Matches,
+import {
+IsMongoId,
+IsNotEmpty,
+IsOptional,
+IsString,
+Matches,
 } from 'class-validator';
 import { RegisterDto } from 'src/auth/dto/register.dto';
 import { Constants } from 'src/utils/constants';
 
-export class CreateStudentDto
-{
+export class CreateStudentDto {
   @IsString()
   @IsMongoId()
   university: string;
+
+  @IsString()
+  @IsMongoId()
+  collage: string;
+
 
   @IsString()
   @IsNotEmpty()
@@ -39,8 +42,7 @@ export class CreateStudentDto
   email: string;
 }
 
-export class CreateTeamMemberDto extends RegisterDto
-{
+export class CreateTeamMemberDto extends RegisterDto {
   @IsString()
   @Matches(Constants.PHONE_REGX, { message: 'phone is invalid' })
   whatsapp: string;

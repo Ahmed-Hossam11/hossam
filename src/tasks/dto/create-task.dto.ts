@@ -1,26 +1,24 @@
 import { Type } from 'class-transformer'
 import { ApiHideProperty } from '@nestjs/swagger';
 ;
-import
-{
-  IsBoolean,
-  IsDate,
-  IsEnum,
-  IsMongoId,
-  IsNotEmpty,
-  IsNotEmptyObject,
-  IsNumber,
-  IsObject,
-  IsOptional,
-  IsString,
-  ValidateNested,
+import {
+IsBoolean,
+IsDate,
+IsEnum,
+IsMongoId,
+IsNotEmpty,
+IsNotEmptyObject,
+IsNumber,
+IsObject,
+IsOptional,
+IsString,
+ValidateNested,
 } from 'class-validator';
 import { CreatePaymentDto } from 'src/payment/dto/create-payment.dto';
 import { PaymentMethod } from 'src/payment/models/payment.model';
 import { State } from '../models/task.model';
 
-export class TaskManagerDto 
-{
+export class TaskManagerDto {
   @IsString()
   @IsOptional()
   id?: string;
@@ -30,8 +28,7 @@ export class TaskManagerDto
   @ApiHideProperty()
   name?: string;
 }
-export class CreateTaskDto
-{
+export class CreateTaskDto {
   @IsString()
   @IsNotEmpty()
   nameAr: string;
@@ -39,6 +36,11 @@ export class CreateTaskDto
   @IsString()
   @IsNotEmpty()
   nameEn: string;
+
+  @IsString()
+  @IsOptional()
+  notes?: string;
+
 
   @IsBoolean()
   @IsOptional()
@@ -94,8 +96,7 @@ export class CreateTaskDto
   payment?: CreatePaymentTaskDto[];
 }
 
-export class CreatePaymentTaskDto
-{
+export class CreatePaymentTaskDto {
   @IsString()
   @IsEnum(PaymentMethod)
   method: PaymentMethod;
@@ -110,8 +111,7 @@ export class CreatePaymentTaskDto
   recieveTime: Date;
 }
 
-export class CreateDtoTasks
-{
+export class CreateDtoTasks {
   @Type(() => Date)
   @IsDate()
   date: Date;
