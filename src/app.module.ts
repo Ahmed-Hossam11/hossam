@@ -16,6 +16,8 @@ import { SubjectsModule } from './subjects/subjects.module';
 import { GroupModule } from './group/group.module';
 import { TasksModule } from './tasks/tasks.module';
 import { PaymentModule } from './payment/payment.module';
+import { CollageModule } from './collage/collage.module';
+import { SemesterModule } from './semester/semester.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -30,6 +32,8 @@ import { PaymentModule } from './payment/payment.module';
     NotificationModule,
     TasksModule,
     PaymentModule,
+    CollageModule,
+    SemesterModule,
 
     // MessageQueueModule,
     // cacheOperationsModule,

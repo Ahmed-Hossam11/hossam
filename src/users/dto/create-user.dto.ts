@@ -16,6 +16,11 @@ export class CreateStudentDto {
   university: string;
 
   @IsString()
+  @IsMongoId()
+  collage: string;
+
+
+  @IsString()
   @IsNotEmpty()
   username: string;
 

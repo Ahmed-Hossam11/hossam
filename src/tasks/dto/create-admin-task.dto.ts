@@ -41,6 +41,10 @@ export class CreateAdminTaskDto {
   @IsNotEmpty()
   nameAr: string;
 
+  @IsString()
+  @IsOptional()
+  notes?: string;
+
   @IsBoolean()
   @IsOptional()
   @ApiHideProperty()
